@@ -1,0 +1,70 @@
+body {
+    background-color: #f3f0e8; /* Light beige background */
+    font-family: Arial, sans-serif;
+}
+
+#logo {
+    position: fixed; /* Position relative to contain absolutely positioned logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+   
+   /* Light orange background for container */
+}
+
+#logo-img {
+   
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(orange, brown); /* Light orange background for container */
+}
+
+#mainform {
+    background-color: #fff; /* White form background */
+    padding: 100px; /* Increased padding for larger container */
+    border-radius: 30px;
+    /* text-align: center; Center align all text */
+}
+
+.form-floating label {
+    color: brown; /* Brown label color */
+    font-weight: bold; /* Bold label text */
+    margin-bottom: 10px; /* Add space below label */
+}
+
+.form-control {
+    border-color: orange; /* Orange border color */
+}
+
+.btn {
+    background-color: chocolate; /* Orange button background */
+    color: #fff; /* White button text color */
+    border: none;
+    padding: 15px 30px; /* Increased padding for larger buttons */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Add space above buttons */
+}
+
+.btn:hover {
+    background-color: #d64c00; /* Darker orange on hover */
+}
+
+.btn_secondary {
+    background-color: brown; /* Brown button background */
+}
+
+.btn_secondary:hover {
+    background-color: #7b3a00; /* Darker brown on hover */
+}

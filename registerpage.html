@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div id="logo">
+    <img src="./logo.jpg" alt="Logo" id="logo-img">
+</div>
+  <div id="container">
+    <form id="mainform" class="w-25 m-4">
+        <div class="form-floating mb-3">
+            <label for="floatingInput">Email address</label>
+            <input type="email" class="form-control" id="emailinp" placeholder="name@example.com">
+            <br>
+          </div>
+          <div class="form-floating mb-3">
+            <br>
+            <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="Passwordinp" placeholder="Password">
+          <br>
+          </div>
+          <div class="form-floating mb-3">
+            <br>
+            <label for="userType">User Type:</label>
+            <select id="userType" name="userType">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+         
+        <br>
+          <button type="submit" class="btn btn_primary" >Create new user</button>
+          <a href="loginpage.html"><button type="button" class="btn btn_primary m-2">Sign In</button></a>
+       </form>
+  </div>
+    <script src=""></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+        import { getDatabase,set,ref} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyBdcEyofy0zK0Nr6DmWUdvPlU93easniDA",
+          authDomain: "login-with-firebase-4d44a.firebaseapp.com",
+          projectId: "login-with-firebase-4d44a",
+          storageBucket: "login-with-firebase-4d44a.appspot.com",
+          messagingSenderId: "710034661652",
+          appId: "1:710034661652:web:1753b90a259b827539e201",
+          measurementId: "G-F9KD1FX5RG"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const Db=getDatabase();
+        const auth=getAuth(app);
+
+        let emailinp=document.getElementById('emailinp');
+        let Passwordinp=document.getElementById('Passwordinp');
+        let userType=document.getElementById('userType');
+        let mainform=document.getElementById('mainform');
+
+
+        let RegisterUser = evt => {
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, emailinp.value, Passwordinp.value)
+            .then((Credential) => {
+                
+                set(ref(Db,'UsersAuthList/'+Credential.user.uid),{
+                  userType:userType.value
+                })
+            })
+            .catch((error) => {
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message);
+            });
+        }
+        mainform.addEventListener('submit', RegisterUser);
+      </script>
+</body>
+</html>
