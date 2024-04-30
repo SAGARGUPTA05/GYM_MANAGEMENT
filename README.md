@@ -5,8 +5,8 @@
   <br />
 
   <h2 align="center">Corefit - Fitness Website</h2>
-fF
-  Fitlife is a fully responsive fitness website, <br />Responsive for all devices, build using HTML, CSS, and JavaScript and Firebase .
+
+  Corefit is a fully responsive fitness website, <br />Responsive for all devices, build using HTML, CSS, and JavaScript and Firebase .
 
 
 
@@ -14,7 +14,7 @@ fF
 
 <br />
 
-
+<div>
 ### Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -47,6 +47,6 @@ If you want  you can reach me at www.linkedin.com/in/sagar-gupta-04a71b241
 
 This project is **free to use** and does not contains any license.
 
-```
+</div>```
 
 
